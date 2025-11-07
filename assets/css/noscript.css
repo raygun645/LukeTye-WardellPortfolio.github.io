@@ -35,3 +35,26 @@
 		opacity: 1;
 		margin: 4rem 0 0 0;
 	}
+
+
+/* Embedded videos */
+	.video-wrapper {
+  position: relative;
+  padding-top: 56.25%; 
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Titles */
+h1, h2, h3 {
+  /* This is the modern, preferred property */
+  overflow-wrap: break-word;
+}
