@@ -37,24 +37,5 @@
 	}
 
 
-/* Embedded videos */
-	.video-wrapper {
-  position: relative;
-  padding-top: 56.25%; 
-  height: 0;
-  overflow: hidden;
-  max-width: 800px;
-  margin: 0 auto;
-}
 
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-} 
 
-/* Titles */
-h1, h2, h3 {
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
