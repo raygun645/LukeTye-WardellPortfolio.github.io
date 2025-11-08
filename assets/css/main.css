@@ -204,6 +204,7 @@ input, select, textarea {
 		letter-spacing: 0.2rem;
 		overflow-wrap: break-word !important;
  		word-break: break-word !important;
+		white-space: normal !important;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -221,6 +222,7 @@ input, select, textarea {
 			margin: 0 0 2rem 0;
 			overflow-wrap: break-word !important;
  			word-break: break-word !important;
+			white-space: normal !important;
 		}
 
 	h1 {
