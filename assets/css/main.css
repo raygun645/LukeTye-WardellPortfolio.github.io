@@ -93,6 +93,12 @@ input, select, textarea {
   height: 100% !important;
 }
 
+.major {
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+
+  white-space: normal !important; 
+}
 /* Basic */
 
 	@-ms-viewport {
@@ -224,6 +230,8 @@ input, select, textarea {
  			word-break: break-word !important;
 			white-space: normal !important;
 		}
+
+		
 
 	h1 {
 		font-size: 2.25rem;
