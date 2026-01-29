@@ -1794,25 +1794,25 @@ input, select, textarea {
 /* --- MOBILE FIXES --- */
 @media screen and (max-width: 600px) {
   
-  /* 1. Reduce the card padding to give content more room */
+  /* 1. Force the container to hold its children */
   .project-card {
-    padding: 1rem; /* Reduced from 1.5rem */
+    padding: 1rem;
+    overflow: hidden; /* Cuts off anything that tries to stick out */
   }
 
-  /* 2. Make the button fill the width and handle text better */
+  /* 2. Force the button to behave */
   .btn-project {
-    display: block;        /* Makes it fill the line */
-    width: 100%;           /* Forces it to match the card width */
-    box-sizing: border-box;/* Ensures padding doesn't break the width */
-    text-align: center;    /* Keeps text centered */
+    display: block !important;
+    width: 100% !important;       /* Force full width */
+    max-width: 100% !important;   /* STOP it from exceeding 100% */
     
-    /* Optional: Slightly smaller text for narrow screens */
-    font-size: 0.9rem;     
-    white-space: normal;   /* Allows text to wrap if it's really long */
-  }
-
-  /* 3. Optional: Ensure the video container doesn't overflow */
-  .video-wrapper {
-    margin-bottom: 0.8rem;
+    box-sizing: border-box !important; /* Includes padding in the width calculation */
+    
+    white-space: normal !important; /* Allows text to wrap onto two lines if needed */
+    overflow-wrap: break-word;      /* Breaks long words if necessary */
+    
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    min-width: 0 !important;        /* Overrides any default minimum width */
   }
 }
