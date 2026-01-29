@@ -1791,10 +1791,28 @@ input, select, textarea {
     color: #9bf1ff; 
 }
 
-/* MOBILE FIX: On phones, the corners might be too tight */
-@media screen and (max-width: 736px) {
-    .back-header-btn {
-        top: 20px;
-        left: 20px;
-    }
+/* --- MOBILE FIXES --- */
+@media screen and (max-width: 600px) {
+  
+  /* 1. Reduce the card padding to give content more room */
+  .project-card {
+    padding: 1rem; /* Reduced from 1.5rem */
+  }
+
+  /* 2. Make the button fill the width and handle text better */
+  .btn-project {
+    display: block;        /* Makes it fill the line */
+    width: 100%;           /* Forces it to match the card width */
+    box-sizing: border-box;/* Ensures padding doesn't break the width */
+    text-align: center;    /* Keeps text centered */
+    
+    /* Optional: Slightly smaller text for narrow screens */
+    font-size: 0.9rem;     
+    white-space: normal;   /* Allows text to wrap if it's really long */
+  }
+
+  /* 3. Optional: Ensure the video container doesn't overflow */
+  .video-wrapper {
+    margin-bottom: 0.8rem;
+  }
 }
