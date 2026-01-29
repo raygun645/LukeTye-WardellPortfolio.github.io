@@ -1791,6 +1791,11 @@ input, select, textarea {
     color: #9bf1ff; 
 }
 
+.UniWorkPages h4.major {
+	margin-top: 4rem; 
+  	display: block;
+}
+
 /* --- MOBILE FIXES --- */
 @media screen and (max-width: 600px) {
   
