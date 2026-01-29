@@ -1791,14 +1791,10 @@ input, select, textarea {
     color: #9bf1ff; 
 }
 
-.UniWorkPages h4.major {
-	margin-top: 4rem; 
-  	display: block;
-}
-
 /* --- MOBILE FIXES --- */
 @media screen and (max-width: 600px) {
   
+
   /* 1. Force the container to hold its children */
   .project-card {
     padding: 1rem;
@@ -1832,5 +1828,9 @@ input, select, textarea {
     margin-left: 0 !important;
     margin-right: 0 !important;
     min-width: 0 !important;        /* Overrides any default minimum width */
+  }
+
+  article h2.major {
+    margin-top: 3.5rem !important; /* Slightly less space on phones */
   }
 }
