@@ -1140,9 +1140,12 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto, 256px 256px;
-			background-position: center, center;
-			background-repeat: no-repeat, repeat;
+			background-size: auto,
+ 256px 256px;
+			background-position: center,
+ center;
+			background-repeat: no-repeat,
+ repeat;
 			z-index: 2;
 		}
 
@@ -1656,3 +1659,127 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+.projects-grid {
+
+	display: grid;
+	grid-template-columns: 1fr;
+  
+  	/* CHANGE THIS VALUE */
+  	gap: 2rem;
+
+  	width: 100%;       /* Tells it to try to fill the parent container */
+  	max-width: 100%;   /* Removes the 600px restriction so it can stretch fully */
+  	padding: 0 1rem;   /* Adds a tiny safety gap so text doesn't hit the absolute edge */
+  	box-sizing: border-box; /* Ensures padding doesn't break the layout */
+  	margin-top: 2rem;
+}
+
+/* Optional: Center the title text above the grid too */
+#UniWork h2, 
+#UniWork p {
+  text-align: center;
+  width: 100%; /* Ensure text blocks span full width so centering works */
+  max-width: 600px; /* Match the grid width for a clean look */
+}
+
+/* Optional: On mobile screens, force it back to 1 column so it's readable */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 2. The Individual Card */
+.project-card {
+  background: #242424; /* Light grey background - adjust to your theme */
+  border: 1px solid #000000;
+  border-radius: 8px; /* Rounded corners */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column; /* Stacks title, video, text vertically */
+  transition: transform 0.2s ease; /* Smooth hover animation */
+
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Adds a dark shadow for depth */
+  margin-bottom: 1rem;
+}
+
+/* 3. Hover Effect for Scannability */
+.project-card:hover {
+  transform: translateY(-5px); /* Lifts the card slightly on hover */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 4. Handling the Video */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 5. The "View Project" Button */
+.btn-project {
+  margin-top: auto; /* Pushes button to the bottom of the card */
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #333; /* Dark button */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn-project:hover {
+  background-color: #555;
+}
+
+#UniWork {
+  /* Turn on Flexbox */
+  display: flex;
+  flex-direction: column; /* Stack items vertically (Title on top of Grid) */
+  align-items: center;    /* FORCE everything to the horizontal center */
+  
+  /* Ensure it fills the space but lets Flexbox handle the alignment */
+  width: 100%; 
+  box-sizing: border-box; /* Stops padding from breaking the width */
+}
+
+.back-header-btn {
+    position: absolute;
+    top: 40px;   /* Matches the vertical alignment of the standard Close (X) button */
+    left: 40px;  /* Puts it on the left side */
+    
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #ffffff; /* Adjust color if your background is light */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 10; /* Ensures it sits on top of images if they scroll up */
+    cursor: pointer;
+}
+
+/* Add a hover effect so people know it's clickable */
+.back-header-btn:hover {
+    color: #9bf1ff; /* Use your site's accent color here */
+}
+
+/* MOBILE FIX: On phones, the corners might be too tight */
+@media screen and (max-width: 736px) {
+    .back-header-btn {
+        top: 20px;
+        left: 20px;
+    }
+}
