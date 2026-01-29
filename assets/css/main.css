@@ -1695,21 +1695,27 @@ input, select, textarea {
 			opacity: 0;
 		}
 
-		/* 1. The Grid Container */
 .projects-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* Back to 1 simple column */
-  gap: 2rem;
+
+	display: grid;
+	grid-template-columns: 1fr;
   
-  /* This shrinks the boxes! */
-  max-width: 600px;  /* Adjust this number to make them wider/narrower */
-  margin: 0 auto;    /* This centers the stack in the middle of the screen */
-  width: 100%;       
+  	/* CHANGE THIS VALUE */
+  	gap: 2rem;
+
+  	width: 100%;       /* Tells it to try to fill the parent container */
+  	max-width: 100%;   /* Removes the 600px restriction so it can stretch fully */
+  	padding: 0 1rem;   /* Adds a tiny safety gap so text doesn't hit the absolute edge */
+  	box-sizing: border-box; /* Ensures padding doesn't break the layout */
+  	margin-top: 2rem;
 }
 
 /* Optional: Center the title text above the grid too */
-#UniWork h2, #UniWork p {
+#UniWork h2, 
+#UniWork p {
   text-align: center;
+  width: 100%; /* Ensure text blocks span full width so centering works */
+  max-width: 600px; /* Match the grid width for a clean look */
 }
 
 /* Optional: On mobile screens, force it back to 1 column so it's readable */
@@ -1728,6 +1734,9 @@ input, select, textarea {
   display: flex;
   flex-direction: column; /* Stacks title, video, text vertically */
   transition: transform 0.2s ease; /* Smooth hover animation */
+
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Adds a dark shadow for depth */
+  margin-bottom: 1rem;
 }
 
 /* 3. Hover Effect for Scannability */
@@ -1771,8 +1780,41 @@ input, select, textarea {
 }
 
 #UniWork {
-  /* "100%" makes it fill the screen, "60rem" stops it from getting too huge on big screens */
+  /* Turn on Flexbox */
+  display: flex;
+  flex-direction: column; /* Stack items vertically (Title on top of Grid) */
+  align-items: center;    /* FORCE everything to the horizontal center */
+  
+  /* Ensure it fills the space but lets Flexbox handle the alignment */
   width: 100%; 
-  max-width: 65rem; /* Increased width (approx 1000px) to fit 2 cards comfortably */
-  margin: 0 auto;   /* Keeps it centered */
+  box-sizing: border-box; /* Stops padding from breaking the width */
+}
+
+.back-header-btn {
+    position: absolute;
+    top: 40px;   /* Matches the vertical alignment of the standard Close (X) button */
+    left: 40px;  /* Puts it on the left side */
+    
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #ffffff; /* Adjust color if your background is light */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 10; /* Ensures it sits on top of images if they scroll up */
+    cursor: pointer;
+}
+
+/* Add a hover effect so people know it's clickable */
+.back-header-btn:hover {
+    color: #9bf1ff; /* Use your site's accent color here */
+}
+
+/* MOBILE FIX: On phones, the corners might be too tight */
+@media screen and (max-width: 736px) {
+    .back-header-btn {
+        top: 20px;
+        left: 20px;
+    }
 }
