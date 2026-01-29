@@ -1830,7 +1830,7 @@ input, select, textarea {
     min-width: 0 !important;        /* Overrides any default minimum width */
   }
 
-  article h2.major {
+  article h4.major {
     margin-top: 3.5rem !important; /* Slightly less space on phones */
   }
 }
