@@ -391,21 +391,21 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-map"></span> The Challenge</h3>
     								        <p>
-    								            The core objective was to expand upon my undergraduate research into <strong>Procedural Content Generation (PCG)</strong>. 
-    								            I needed to determine which algorithms were most viable for creating valid, playable layouts for a dungeon crawler, ensuring that levels were not just random, but structured and navigable.
+    								            The core objective was to expand upon my undergraduate research into <strong>Procedural Content Generation (PCG).</strong> 
+    								        	I needed to determine which algorithms were most viable for creating valid, playable layouts for a dungeon crawler, ensuring that levels were not just random, but structured and navigable.
     								        </p>
     								    </div>
 									
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-cogs"></span> The Solution</h3>
     								        <p>
-    								            I researched and implemented multiple generation techniques to test their viability. This culminated in a modular system capable of swapping between different algorithms on the fly.
-    								            The final system successfully integrated:
+    								            I researched and implemented multiple generation techniques and conducted quantative testing with volunteers to see which was most viable amongst testers. This culminated in a single modular system being selected, capable of generating a conected dungeon level.
+    								            The final systems successfully developed were:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Cellular Automata:</strong> Used for organic, cave-like structures.</li>
-    								            <li><strong>Binary Space Partitioning (BSP):</strong> Used for structured rooms and corridors.</li>
-    								            <li><strong>Random Walkers:</strong> Used for connecting isolated regions.</li>
+    								            <li><strong>Cellular Automata:</strong> Used to create organic, cave-like structures.</li>
+    								            <li><strong>Binary Space Partitioning (BSP):</strong> Used to create structured rooms within a level.</li>
+    								            <li><strong>Depth-First search:</strong> Used to create small interconected levels with rooms.</li>
     								        </ul>
     								    </div>
 									
@@ -414,7 +414,7 @@
     								        <div class="metrics-grid">
     								            <div class="metric-card">
     								                <span class="metric-number">3</span>
-    								                <span class="metric-desc">Distinct Algorithms Implemented</span>
+    								                <span class="metric-desc">Distinct Algorithms Developed</span>
     								            </div>
     								            <div class="metric-card">
     								                <span class="metric-number">&lt;1s</span>
@@ -422,14 +422,14 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project formed the technical backbone for my final Masters thesis. It taught me the importance of <em>seeding</em> in RNG to ensure bugs could be reproduced and fixed reliably.
+    								            <strong>Key Learning:</strong> This project formed the backbone for my final Masters project. It taught me the importance of <em>seeding</em> in RNG to ensure bugs could be reproduced and fixed reliably.
     								        </p>
     								    </div>
 									
     								    <div class="intro-actions centered-actions">
     								        <p>Interested in the code?</p>
     								        <div class="btn-group">
-    								            <a href="#" class="button primary icon brands fa-github">View Repository</a>
+    								            <a href="#https://github.com/raygun645/Masters-NP1" class="button primary icon brands fa-github">View Repository</a>
     								            <a href="#M2Project" class="button">Next Project →</a>
     								        </div>
     								    </div>
@@ -482,7 +482,7 @@
     								        <h3><span class="icon solid fa-box-open"></span> The Challenge</h3>
     								        <p>
     								            Following my previous project on level generation, I faced a new problem: <strong>Empty Rooms.</strong> 
-    								            The challenge was twofold: I needed a system to populate these procedural levels with content (weapons, items, enemies) automatically, and I needed an intelligent placement algorithm to ensure these objects didn't spawn inside walls or inaccessible areas.
+    								            The challenge was twofold: I needed systems to procedurally generate the content found within the levels (weapons, items, enemies) automatically, and I needed an intelligent placement algorithm to ensure these objects didn't spawn inside walls or inaccessible areas.
     								        </p>
     								    </div>
 									
@@ -492,8 +492,8 @@
     								            I developed two distinct subsystems to handle Content and Context:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Modular Asset Generation:</strong> A "Constructor" script that assembles unique weapons by randomly combining compatible meshes (e.g., Hilt + Guard + Blade) and assigning stats based on the resulting rarity.</li>
-    								            <li><strong>Context-Aware Placement:</strong> A validation pass that scans the generated level geometry. It uses raycasting and grid-checks to identify valid "Floor" surfaces before spawning enemies or loot chests.</li>
+    								            <li><strong>Modular Asset Generation:</strong> A "Constructor" script that assembles unique weapons/enemies/loot by randomly combining compatible meshes (e.g., Stock + Barrel + Grip) and assigning stats based on the resulting mesh map.</li>
+    								            <li><strong>Context-Aware Placement:</strong> A validation pass that checks the generated level. It uses grid-checks to identify valid "Floor" surfaces before spawning enemies or loot</li>
     								        </ul>
     								    </div>
 									
@@ -515,9 +515,9 @@
     								    </div>
 									
     								    <div class="intro-actions centered-actions">
-    								        <p>Explore the mechanics:</p>
+    								        <p>Explore the code:</p>
     								        <div class="btn-group">
-    								            <a href="#" class="button primary icon brands fa-github">View Repository</a>
+    								            <a href="#https://github.com/raygun645/Masters-NP2" class="button primary icon brands fa-github">View Repository</a>
     								            <a href="#M3Project" class="button">Next Project →</a>
     								        </div>
     								    </div>
@@ -569,7 +569,7 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-brain"></span> The Challenge</h3>
     								        <p>
-    								            With a procedural level and asset system in place, the final piece was an intelligent agent that could navigate it. The core challenge was determining which AI architecture offered the best balance of <strong>performance vs. complexity</strong>.
+    								            With a procedural level and asset system in place, the final piece was intelligent agents that could navigate it. The core challenge was determining which AI architecture offered the best balance of <strong>performance vs. complexity.</strong>
     								            I needed an agent that could handle the unpredictability of a procedural map without breaking its behavior loop.
     								        </p>
     								    </div>
@@ -581,8 +581,8 @@
     								        </p>
     								        <ul class="tech-list">
     								            <li><strong>Finite State Machines (FSM):</strong> Implemented for simple enemies (e.g., Patrol → Chase → Attack). Efficient, but lacked nuance.</li>
-    								            <li><strong>Fuzzy Logic:</strong> Added to introduce "uncertainty," allowing enemies to be in partial states (e.g., "Cautiously Aggressive") rather than binary on/off states.</li>
-    								            <li><strong>Behavior Trees:</strong> The winning solution. This hierarchical approach allowed for modular decision-making (Decorators, Selectors, Sequences) that scaled best with the complex procedural environment.</li>
+    								            <li><strong>Fuzzy Logic (FuSM):</strong> Added to introduce "uncertainty," allowing enemies to be in partial states (e.g., "Cautiously Aggressive") rather than binary on/off states.</li>
+    								            <li><strong>Behavior Trees (BTs):</strong> The winning solution. This hierarchical approach allowed for modular decision-making (Decorators, Selectors, Sequences) that scaled best with the complex procedural environment.</li>
     								        </ul>
     								    </div>
 									
@@ -594,7 +594,7 @@
     								                <span class="metric-desc">Architectures Built from Scratch</span>
     								            </div>
     								            <div class="metric-card">
-    								                <span class="metric-number">BT</span>
+    								                <span class="metric-number">BTs</span>
     								                <span class="metric-desc">Selected as Optimal Solution</span>
     								            </div>
     								        </div>
@@ -604,9 +604,9 @@
     								    </div>
 									
     								    <div class="intro-actions centered-actions">
-    								        <p>See the comparison code:</p>
+    								        <p>See the code:</p>
     								        <div class="btn-group">
-    								            <a href="#" class="button primary icon brands fa-github">View Repository</a>
+    								            <a href="#https://github.com/raygun645/Masters-NP3" class="button primary icon brands fa-github">View Repository</a>
     								            <a href="#M4Project" class="button">Final Project →</a>
     								        </div>
     								    </div>
@@ -651,25 +651,25 @@
     								        </div>
     								        <div class="stat">
     								            <span class="stat-label">Status</span>
-    								            <span class="stat-value">Playable Build</span>
+    								            <span class="stat-value">Playable Build (Development Ongoing)</span>
     								        </div>
     								    </div>
 									
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-cubes"></span> The Challenge</h3>
     								        <p>
-    								            The final hurdle was <strong>Integration</strong>. I had three disparate systems—Level Generation, Asset Placement, and AI—that worked in isolation but needed to function cohesively in real-time.
-    								            The challenge was to orchestrate the "Initialization Order" so the AI wouldn't spawn before the NavMesh was built, and loot wouldn't spawn before the rooms existed.
+    								            The final hurdle was <strong>Integration</strong>. I had three different systems, Level Generation, Asset Placement, and AI that worked in isolation but needed to function cohesively in real-time.
+    								            The challenge was to orchestrate the "Initialization Order" so the AI wouldn't spawn before the NavMesh was built, and loot wouldn't spawn before the level existed.
     								        </p>
     								    </div>
 									
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-gamepad"></span> The Solution</h3>
     								        <p>
-    								            I developed a central <strong>Game Manager Architecture</strong> to handle the generation lifecycle and implemented core gameplay mechanics to turn the tech demo into a game:
+    								            I developed a <strong>Level Manager Architecture</strong> to handle the generation lifecycle and implemented core gameplay mechanics to turn the tech demo into a game:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Lifecycle Management:</strong> Created an event-driven initialization pipeline (Generate Level -> Bake Navigation -> Spawn Assets -> Activate AI).</li>
+    								            <li><strong>Lifecycle Management:</strong> Created an event-driven initialization pipeline (Generate valid Level -> Spawn valid Assets -> Activate AI).</li>
     								            <li><strong>Gameplay Loops:</strong> Implemented a combat system, inventory management, and a UI layer to provide context for the procedural elements.</li>
     								            <li><strong>User Validation:</strong> Conducted playtesting sessions with volunteers to gather qualitative data on "Game Feel" and system stability.</li>
     								        </ul>
@@ -695,7 +695,7 @@
     								    <div class="intro-actions centered-actions">
     								        <p>Ready to see my personal work?</p>
     								        <div class="btn-group">
-    								            <a href="#" class="button primary icon brands fa-github">View Source</a>
+    								            <a href="#" class="button primary icon brands fa-github">Project is ongoing</a>
     								            <a href="#PersonalWork" class="button">View Personal Projects →</a>
     								        </div>
     								    </div>
@@ -749,8 +749,8 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-tools"></span> The Challenge</h3>
     								        <p>
-    								            The goal of "Farmer" is to simulate a functional agricultural economy. The technical challenge was to create a scalable interaction system where the player can manipulate the world (plowing, planting, harvesting) on a grid-based layout. 
-    								            I also wanted to practice a professional <strong>Rapid Prototyping Workflow</strong>: validating mechanics quickly without getting bogged down in syntax initially.
+    								            The goal of "Farmer" is to create a farming game like others present in the current market. The technical challenge was to create a scalable interaction system where the player can manipulate the world (plowing, planting, harvesting) on a grid-based layout. 
+    								            I also wanted to practice a professional <strong>Rapid Prototyping Workflow:</strong> validating mechanics quickly without getting bogged down in syntax initially.
     								        </p>
     								    </div>
 									
@@ -761,7 +761,7 @@
     								        </p>
     								        <ul class="tech-list">
     								            <li><strong>Phase 1 (Visual Scripting):</strong> All mechanics (Crop Growth, Inventory, Shop Interface) are first built in Blueprints. This allows for instant iteration and debugging of the "Game Feel."</li>
-    								            <li><strong>Phase 2 (C++ Refactoring):</strong> Once a mechanic is fun and stable, I rewrite the core logic in C++. This moves heavy computation (like crop state timers) off the game thread and exposes clean, optimized functions back to the Editor.</li>
+    								            <li><strong>Phase 2 (C++ Refactoring):</strong> Once a mechanic is fun and stable, I rewrite the core logic in C++. This moves heavy computation off the game thread and exposes clean, optimized functions back to the Editor.</li>
     								        </ul>
     								    </div>
 									
@@ -778,15 +778,15 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project improved my understanding of <em>UObject</em> inheritance. By creating a base C++ "Plant" class, I can easily create varied crops in the Editor that inherit shared logic (Growth Rate, Sale Price) while maintaining high performance.
+    								            <strong>Key Learning:</strong> This project improved my understanding of <em>UInterfaces</em>. This allows the Player to execute generic commands (e.g., "Use Tool") that result in unique behaviors depending on the target (Soil, Crop), removing the need for complex casting or branching logic.
     								        </p>
     								    </div>
 									
     								    <div class="intro-actions centered-actions">
-    								        <p>Follow the development:</p>
+    								        <p>Play the game</p>
     								        <div class="btn-group">
-    								            <a href="https://github.com/raygun645" class="button primary icon brands fa-github">View GitHub</a>
-    								            <a href="#contact" class="button">Contact Me →</a>
+    								            <a href="#https://gh0st1n4hesystm.itch.io/farmer" class="button primary icon brands fa-itch-io">View game</a>
+    								            <a href="#MLProject" class="button">Next Project →</a>
     								        </div>
     								    </div>
 									
@@ -837,7 +837,7 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-robot"></span> The Challenge</h3>
     								        <p>
-    								            I wanted to explore how <strong>Machine Learning (ML)</strong> could be integrated into a game engine environment. The goal was to train an agent to navigate a track autonomously without using hard-coded splines or navigation meshes.
+    								            I wanted to explore how <strong>Machine Learning (ML)</strong> could be integrated into a game engine environment. The goal was to train an agent to navigate a track autonomously.
     								            The core challenge was defining the inputs (vision) and outputs (steering) so the agent could "perceive" the track boundaries in real-time.
     								        </p>
     								    </div>
@@ -848,7 +848,7 @@
     								            I implemented a Neural Network based on <strong>Reinforcement Learning</strong> principles:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Sensory Input (Raycasting):</strong> The car casts multiple rays (LIDAR style) to detect distances to walls. These values are normalized and fed into the network.</li>
+    								            <li><strong>Sensory Input (Track Spline):</strong> The car attempts to follow a track spline. These values are normalized and fed into the network.</li>
     								            <li><strong>Action Output:</strong> The network outputs throttle and steering values.</li>
     								            <li><strong>The Reward Function:</strong> I designed a fitness function that rewarded speed and distance traveled, while heavily penalizing collisions. This creates an evolutionary pressure for the agent to drive fast but safely.</li>
     								        </ul>
@@ -858,8 +858,8 @@
     								        <h3><span class="icon solid fa-chart-line"></span> Technical Outcomes</h3>
     								        <div class="metrics-grid">
     								            <div class="metric-card">
-    								                <span class="metric-number">5</span>
-    								                <span class="metric-desc">Raycast Sensors</span>
+    								                <span class="metric-number">23</span>
+    								                <span class="metric-desc">Track Spline Points</span>
     								            </div>
     								            <div class="metric-card">
     								                <span class="metric-number">Auto</span>
@@ -867,15 +867,15 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project taught me the importance of <em>Hyperparameter Tuning</em>. Small changes to the "Punishment" value for crashing drastically changed the AI's behavior—too low, and it didn't care about walls; too high, and it refused to move out of fear.
+    								            <strong>Key Learning:</strong> This project taught me the basics of <em>Machine Learning</em> in Unreal engine. it was interesting to see how different inputs and outputs can affect the overall outcome.
     								        </p>
     								    </div>
 									
     								    <div class="intro-actions centered-actions">
-    								        <p>Ready to talk?</p>
+    								        <p>View the code</p>
     								        <div class="btn-group">
-    								            <a href="#contact" class="button primary icon solid fa-envelope">Get In Touch</a>
-    								            <a href="#intro" class="button">Back to Home →</a>
+    								            <a href="#https://github.com/raygun645/MachineLearningCars" class="button primary icon brands fa-github">View Source</a>
+    								            <a href="#AIJam" class="button">Next Project →</a>
     								        </div>
     								    </div>
 									
@@ -896,7 +896,7 @@
     								<div class="content-wrapper single-column-mode">
 									
     								    <header class="project-header">
-    								        <h2 class="major">Cooking With Words: GenAI Integration</h2>
+    								        <h2 class="major">Cooking With Words: Gen AI Integration</h2>
     								        <p class="subtitle">AI Game Jam - Collaborative Project</p>
 										
     								        <div class="video-wrapper">
@@ -926,8 +926,8 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-stopwatch"></span> The Challenge</h3>
     								        <p>
-    								            The challenge of this Game Jam was to meaningfully integrate Generative AI into a gameplay loop. 
-    								            Technically, the main hurdle was <strong>Latency</strong>. Generating an image with Stable Diffusion and text with an LLM takes seconds—far too long to pause a game. We needed a way to process these heavy requests locally without freezing the main game thread.
+    								            The challenge of the AI and Games Summer School jam was to integrate AI into a game in some way, myself and another developer chose to integreate GenAI into the game loop. 
+    								            Technically, the main hurdle was <strong>Latency</strong>. Generating an image with Stable Diffusion and text with an LLM takes seconds far too long to pause a game. We needed a way to process these heavy requests locally without freezing the main game thread.
     								        </p>
     								    </div>
 									
@@ -937,9 +937,9 @@
     								            We designed an <strong>Asynchronous Gameplay Loop</strong> where the "Wait Time" became the "Game Time."
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>The Mechanic:</strong> The player acts as the "Prompt Engineer." By running between stations and typing ingredients, they are constructing the JSON payload for the AI.</li>
-    								            <li><strong>Pipeline:</strong> Once submitted, the data is sent to a locally running Python server. The game continues running while the LLM generates a description and Stable Diffusion generates the texture.</li>
-    								            <li><strong>Runtime Assets:</strong> When the API returns, we convert the raw byte data into a Unity Texture2D and apply it to the 3D cake model in real-time.</li>
+    								            <li><strong>The Mechanic:</strong> The player acts as the "Prompt Engineer." By running between stations and typing ingredients, they are constructing the "Recipe" for the AI.</li>
+    								            <li><strong>Pipeline:</strong> Once submitted, the data is sent to a locally running AI model. The game continues running while the LLM generates a description and Stable Diffusion generates the texture.</li>
+    								            <li><strong>Runtime Assets:</strong> When the API returns, we convert the raw data into a Unity Texture2D and apply it to the UI cake pciture in real-time.</li>
     								        </ul>
     								    </div>
 									
@@ -956,15 +956,15 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project taught me how to bridge <em>C# (Unity)</em> with <em>Python (AI Backends)</em> using HTTP requests. It also highlighted the importance of error handling—what happens if the AI generates something invalid?
+    								            <strong>Key Learning:</strong> This project taught me how to bridge <em>C# (Unity)</em> with <em>Local API calls.</em> It also highlighted the importance of error handling what happens if the AI generates something invalid?
     								        </p>
     								    </div>
 									
     								    <div class="intro-actions centered-actions">
-    								        <p>See the final project:</p>
+    								        <p>See the full project:</p>
     								        <div class="btn-group">
-    								            <a href="#" class="button primary icon brands fa-github">View Source</a>
-    								            <a href="#PersonalWork" class="button">Next Project →</a>
+    								            <a href="#https://github.com/GameAISchool2025members/CookingGroupInc" class="button primary icon brands fa-github">View Source</a>
+    								            <a href="#ERProject" class="button">Next Project →</a>
     								        </div>
     								    </div>
 									
@@ -1015,7 +1015,7 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-mobile-alt"></span> The Challenge</h3>
     								        <p>
-    								            The goal was to translate the power of Unreal Engine to a resource-constrained mobile environment. 
+    								            The goal was to understand Unreal Engine better when first begining to use it, I used this opportunity create to an Endless runner designed to work on mobile devices. 
     								            Creating an "Endless" game presents a unique memory challenge: spawning and destroying track segments infinitely will eventually cause garbage collection spikes (lag). I needed a way to maintain a smooth framerate while handling persistent data (High Scores) across sessions.
     								        </p>
     								    </div>
@@ -1026,7 +1026,7 @@
     								            I focused on efficient memory management and persistent systems:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Object Pooling Pattern:</strong> Instead of destroying track segments that pass the player, I "recycle" them by moving them to the front of the queue. This keeps memory allocation stable.</li>
+    								            <li><strong>Object Pooling Pattern:</strong> Instead of having pre constructed track pieces, I procedurally generate each track piece before the player reaches it using pooling so each track piece has a different obstacle configuration.</li>
     								            <li><strong>Serialization (Save System):</strong> Implemented a `USaveGame` subsystem to write binary data to the device, storing total Coin Count and High Scores between app launches.</li>
     								            <li><strong>Vector Math Mechanics:</strong> The "Magnet" upgrade uses vector interpolation (VInterp) to calculate the direction and velocity required to pull coin actors toward the player dynamically.</li>
     								        </ul>
@@ -1050,10 +1050,10 @@
     								    </div>
 									
     								    <div class="intro-actions centered-actions">
-    								        <p>That's everything!</p>
+    								        <p>Play the game</p>
     								        <div class="btn-group">
-    								            <a href="#contact" class="button primary icon solid fa-envelope">Hire Me</a>
-    								            <a href="#intro" class="button">Back to Home →</a>
+    								            <a href="#https://gh0st1n4hesystm.itch.io/endless-runner" class="button primary icon brands fa-itch-io">View game</a>
+    								            <a href="#contact" class="button">Contact me →</a>
     								        </div>
     								    </div>
 									
@@ -1061,8 +1061,6 @@
 
 								</article>
 							 
-
-
 
 
 
