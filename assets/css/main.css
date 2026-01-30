@@ -2570,3 +2570,39 @@ h2.major.profile-name:after {
 .case-study-section p strong {
     margin-right: 0.2rem; 
 }
+
+.project-card h3, 
+.project-card h4, 
+.project-card h2.major {
+    white-space: normal !important;   /* Allow text to wrap */
+    overflow-wrap: break-word !important; 
+    word-break: break-word !important;
+    max-width: 100% !important;       /* Stop it from being wider than the card */
+    font-size: 1rem !important;       /* Slightly smaller to prevent crowding */
+    line-height: 1.4 !important;
+}
+
+/* 2. Fix "Next Project" Button Cutoff */
+/* This allows the buttons to fit side-by-side on small screens */
+@media screen and (max-width: 480px) {
+    .intro-actions .btn-group {
+        gap: 0.5rem !important;       /* Reduce gap between buttons */
+    }
+
+    .intro-actions .btn-group .button {
+        padding: 0 0.5rem !important; /* Reduce side padding inside buttons */
+        font-size: 0.65rem !important;/* Shrink text slightly */
+        
+        white-space: normal !important; /* ALLOW TEXT WRAPPING */
+        text-align: center !important;  /* Center the wrapped text */
+        line-height: 1.1 !important;    /* Tighten lines for wrapped text */
+        
+        height: auto !important;        /* Allow button to grow taller if text wraps */
+        min-height: 3.5rem !important;  /* Keep the touch target nice and big */
+    }
+    
+    /* Ensure the icon stays centered if text wraps */
+    .intro-actions .btn-group .button .icon {
+        margin-right: 0.3rem !important;
+    }
+}
