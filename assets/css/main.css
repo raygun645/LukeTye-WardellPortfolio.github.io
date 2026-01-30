@@ -2681,6 +2681,8 @@ h2.major.profile-name:after {
 /* 2. The Video (Fills the Container) */
 .video-wrapper iframe,
 .video-wrapper-art iframe,
+.video-wrapper video,       
+.video-wrapper-art video,
 .project-card iframe, 
 .project-card video {
     position: absolute !important;
