@@ -2590,14 +2590,23 @@ h2.major.profile-name:after {
     box-sizing: border-box !important;
 }
 
+.project-card img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important; 
+}
+
+/* 2. Videos: Force them to fill the 16:9 container */
 .project-card iframe,
-.project-card img,
 .project-card video,
-.video-wrapper-art iframe,        /* Targeting your specific class */
+.video-wrapper-art iframe,
 .video-wrapper iframe {
-    width: 100% !important;       /* Force to fill container */
-    max-width: 100% !important;   /* Never exceed container */
-    height: auto !important;      /* Maintain aspect ratio (for images) */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important; /* This restores the full height */
+    position: absolute !important; /* Ensures it snaps to the wrapper corners */
+    top: 0;
+    left: 0;
 }
 
 /* 4. Fix the specific 'video-wrapper-art' container if it lacks styling */
