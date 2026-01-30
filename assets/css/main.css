@@ -2571,15 +2571,52 @@ h2.major.profile-name:after {
     margin-right: 0.2rem; 
 }
 
+.project-card h2, 
 .project-card h3, 
 .project-card h4, 
-.project-card h2.major {
-    white-space: normal !important;   /* Allow text to wrap */
+.project-card h5,
+.project-card .major {
+    white-space: normal !important;   /* Force wrapping */
     overflow-wrap: break-word !important; 
-    word-break: break-word !important;
-    max-width: 100% !important;       /* Stop it from being wider than the card */
-    font-size: 1rem !important;       /* Slightly smaller to prevent crowding */
-    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    max-width: 100% !important;
+    min-width: 0 !important;          /* CSS Grid fix */
+}
+
+.project-card {
+    max-width: 100vw !important; /* Screen width limit */
+    width: 100% !important;
+    overflow: hidden !important; /* Chop off anything that still tries to stick out */
+    box-sizing: border-box !important;
+}
+
+.project-card iframe,
+.project-card img,
+.project-card video,
+.video-wrapper-art iframe,        /* Targeting your specific class */
+.video-wrapper iframe {
+    width: 100% !important;       /* Force to fill container */
+    max-width: 100% !important;   /* Never exceed container */
+    height: auto !important;      /* Maintain aspect ratio (for images) */
+}
+
+/* 4. Fix the specific 'video-wrapper-art' container if it lacks styling */
+.video-wrapper-art {
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    margin-bottom: 1rem;
+}
+
+.video-wrapper-art iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /* 2. Fix "Next Project" Button Cutoff */
