@@ -1791,6 +1791,49 @@ input, select, textarea {
     color: #9bf1ff; 
 }
 
+.internal-nav {
+  position: sticky;       /* Makes it stick! */
+  top: 0;                 /* Sticks exactly to the top edge */
+  z-index: 1000;          /* Ensures it sits ABOVE everything else */
+  background-color: #1b1f22; /* Matches your dark background (Update if needed) */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Subtle separator line */
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+/* 2. The List (Flexbox) */
+.internal-nav ul {
+  display: flex;
+  justify-content: center; /* Centers the links */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem; /* Space between links */
+}
+
+/* 3. The Links */
+.internal-nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover Effect */
+.internal-nav a:hover {
+  color: #9bf1ff; /* Your accent color */
+}
+
+/* Active State (Visual cue for current page) */
+.internal-nav a.active {
+  color: #9bf1ff;
+  border-bottom: 1px solid #9bf1ff;
+}
+
 /* --- MOBILE FIXES --- */
 @media screen and (max-width: 600px) {
   
@@ -1832,5 +1875,20 @@ input, select, textarea {
 
   article h4.major {
     margin-top: 3.5rem !important; /* Slightly less space on phones */
+  }
+
+  .internal-nav ul {
+    justify-content: flex-start; /* Align to start so we can scroll */
+    overflow-x: auto;            /* Allow horizontal scrolling */
+    white-space: nowrap;         /* Stop text from wrapping */
+    padding: 0.5rem 1rem;        /* Add side padding for scroll feel */
+    gap: 1.5rem;
+    
+    /* Hide scrollbar for cleaner look (works in Chrome/Safari) */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .internal-nav ul::-webkit-scrollbar {
+    display: none; 
   }
 }
