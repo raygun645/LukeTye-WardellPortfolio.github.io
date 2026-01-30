@@ -1914,7 +1914,7 @@ input, select, textarea {
     width: 100%; /* Ensure it fits the container */
 }
 
-/* --- LEFT COLUMN: PROFILE --- */
+
 .profile-column {
     text-align: center;
 }
@@ -1941,7 +1941,7 @@ h2.major.profile-name {
 
 	border-bottom: none !important; /* Removes the long template line */
     box-shadow: none !important;    /* Just in case the template uses shadow for the line */
-    background: none !important
+    background: none !important;
 }
 
 /* 2. Tame the Underline (The :after element) */
@@ -2146,119 +2146,173 @@ h2.major.profile-name:after {
     border-color: #ffffff;
 }
 
-/* --- MOBILE FIXES --- */
-@media screen and (max-width: 600px) {
-  
+@media screen and (max-width: 980px) {
 
-  /* 1. Force the container to hold its children */
-  .project-card {
-    padding: 1rem;
-    overflow: hidden; /* Cuts off anything that tries to stick out */
-  }
-
-  .project-card h3.major, 
-  .project-card h3 {
-    font-size: 0.9rem !important;   /* Force it small */
-    line-height: 1.2 !important;    /* Tighten spacing */
-    letter-spacing: 0px !important; /* Remove wide spacing if template adds it */
-    
-    width: 100% !important;         /* Ensure it can fill the box */
-    white-space: normal !important; /* Force wrapping */
-    
-    margin-top: 0.5rem !important;  /* Remove huge gaps above title */
-    padding-bottom: 0.5rem !important; /* Remove huge gaps below title */
-  }
-
-  /* 2. Force the button to behave */
-  .btn-project {
-    display: block !important;
-    width: 100% !important;       /* Force full width */
-    max-width: 100% !important;   /* STOP it from exceeding 100% */
-    
-    box-sizing: border-box !important; /* Includes padding in the width calculation */
-    
-    white-space: normal !important; /* Allows text to wrap onto two lines if needed */
-    overflow-wrap: break-word;      /* Breaks long words if necessary */
-    
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    min-width: 0 !important;        /* Overrides any default minimum width */
-  }
-
-  article h4.major {
-    margin-top: 3.5rem !important; /* Slightly less space on phones */
-  }
-
-  .internal-nav ul {
-    justify-content: flex-start; /* Align to start so we can scroll */
-    overflow-x: auto;            /* Allow horizontal scrolling */
-    white-space: nowrap;         /* Stop text from wrapping */
-    padding: 0.5rem 1rem;        /* Add side padding for scroll feel */
-    gap: 1.5rem;
-    
-    /* Hide scrollbar for cleaner look (works in Chrome/Safari) */
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .internal-nav ul::-webkit-scrollbar {
-    display: none; 
-  }
-
-  .skills-grid {
-        grid-template-columns: 1fr; /* Stack vertically on phones */
-        gap: 1.5rem;
-    }
-    
-    .skill-card {
-        padding: 1.5rem;
+    /* --- LAYOUT RESET --- */
+    /* Force the layout to be a vertical stack, not a grid */
+    .intro-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
     }
 
-	.intro-grid {
-        grid-template-columns: 1fr; /* Stack visually */
-        gap: 2rem;
+    /* Release the "Squashing" Padding */
+    .content-wrapper {
+        padding: 2rem 1.5rem !important; /* CRITICAL FIX: Gives content room to breathe */
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
-    
+
+    /* --- COLUMNS --- */
+    .profile-column, 
+    .bio-column {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Fix Profile Image Alignment */
     .profile-column {
-        margin-bottom: 1rem;
+        text-align: center !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 2rem;
     }
     
-    .btn-group {
-        flex-direction: column; /* Stack buttons on phone */
-    }
-    
-    .button {
-        width: 100%;
-        text-align: center;
+    .profile-img-container img {
+        max-width: 200px;
     }
 
-	.content-wrapper {
-        padding: 2rem 1.5rem;
+    /* --- TEXT & CONTENT --- */
+    /* Stop "Education" from breaking */
+    .intro-card h3 {
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+    }
+
+    /* Stack the long badges so they don't squash */
+    .profile-badges {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.8rem;
+    }
+
+    .badge {
+        width: 100%;
+        max-width: 300px;
+        box-sizing: border-box;
+        text-align: center;
+        white-space: normal; /* Allow the text inside the badge to wrap naturally */
+    }
+    
+    /* --- NAVIGATION --- */
+    .internal-nav ul {
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 0.5rem 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .internal-nav ul::-webkit-scrollbar {
+        display: none;
     }
 }
 
-/* --- DESKTOP FIXES --- */
- @media screen and (max-width: 1080px) {
-    .intro-grid {
-        display: flex;        
-        flex-direction: column; 
-        align-items: center;    
+
+/* 2. STRICT MOBILE PHONE FIXES (Max-width: 600px)
+   Extra adjustments just for small screens */
+@media screen and (max-width: 600px) {
+    
+    .content-wrapper {
+        padding: 1.5rem 1rem !important; /* Even smaller padding for small phones */
     }
 
-    .profile-column {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 2rem;
-        border-bottom: 1px solid rgba(255,255,255,0.1); 
-        padding-bottom: 2rem;
+    /* Force Project Buttons to be full width */
+    .btn-project {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
+    
+    .project-card h3 {
+        font-size: 1rem !important;
+        margin-top: 0.5rem !important;
+    }
+    
+    .skills-grid, .contact-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
 
-    .bio-column {
-        width: 100%; 
-    }
+.intro-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    
+   
+    max-width: 700px !important; 
+    margin: 0 auto !important;   
+    width: 100% !important;
+}
+
+
+.profile-column {
+    width: 100% !important;
+    text-align: center !important;
     
     
-    .intro-card {
-        width: 100%;
-        box-sizing: border-box;
-    }
-} 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-img-container {
+    margin: 0 auto 1.5rem auto !important; 
+    width: 200px;
+    height: 200px;
+}
+
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+
+h2.major.profile-name {
+    text-align: center !important;
+    justify-content: center !important;
+    font-size: 2rem !important;
+    border-bottom: none !important; 
+    margin-bottom: 1rem !important;
+}
+
+
+h2.major.profile-name:after {
+    display: none !important; 
+}
+
+
+.profile-badges {
+    justify-content: center !important;
+}
+
+
+.bio-column {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+
+.content-wrapper {
+    padding: 2rem 1.5rem !important; 
+    overflow-x: hidden; 
+}
