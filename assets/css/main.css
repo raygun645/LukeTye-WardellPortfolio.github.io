@@ -2592,8 +2592,8 @@ h2.major.profile-name:after {
 
 .project-card img {
     width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important; 
+    height: auto !important; /* Images don't need the 16:9 hack */
+    position: static !important;
 }
 
 /* 2. Videos: Force them to fill the 16:9 container */
@@ -2610,24 +2610,30 @@ h2.major.profile-name:after {
 }
 
 /* 4. Fix the specific 'video-wrapper-art' container if it lacks styling */
+.video-wrapper, 
 .video-wrapper-art {
-    position: relative;
+    position: relative !important;
+    padding-bottom: 56.25% !important; /* 16:9 Aspect Ratio (9/16 = 0.5625) */
+    height: 0 !important;
+    overflow: hidden !important;
     width: 100% !important;
     max-width: 100% !important;
-    overflow: hidden;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem !important;
+    background: #000; /* Fallback so you see the box if video loads slow */
 }
 
-.video-wrapper-art iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* 2. The Video (Fills the Container) */
+.video-wrapper iframe,
+.video-wrapper-art iframe,
+.project-card iframe, 
+.project-card video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
+    border: none !important;
 }
-
 /* 2. Fix "Next Project" Button Cutoff */
 /* This allows the buttons to fit side-by-side on small screens */
 @media screen and (max-width: 480px) {
