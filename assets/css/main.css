@@ -2658,3 +2658,45 @@ h2.major.profile-name:after {
         margin-right: 0.3rem !important;
     }
 }
+
+.video-wrapper, 
+.video-wrapper-art {
+    position: relative !important;
+    
+    /* Force 16:9 Aspect Ratio */
+    padding-bottom: 56.25% !important; 
+    padding-top: 0 !important;
+    height: 0 !important;
+    
+    /* CRITICAL FIX: Stop border-box from crushing the padding */
+    box-sizing: content-box !important; 
+    
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 1.5rem !important;
+    background: #000; /* Black background while loading */
+}
+
+/* 2. The Video (Fills the Container) */
+.video-wrapper iframe,
+.video-wrapper-art iframe,
+.project-card iframe, 
+.project-card video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important; /* Fill the 16:9 box */
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 3. Images (Keep them natural, don't stretch) */
+.project-card img {
+    width: 100% !important;
+    height: auto !important; 
+    position: static !important;
+    object-fit: cover !important;
+}
