@@ -1904,6 +1904,248 @@ input, select, textarea {
     color: #1b1f22; /* Invert colors on hover */
 }
 
+.intro-grid {
+    display: grid;
+    /* 1. Reduced fixed width from 300px to 250px to save space */
+    grid-template-columns: 250px 1fr; 
+    gap: 3rem;
+    align-items: start;
+    margin-top: 1rem;
+    width: 100%; /* Ensure it fits the container */
+}
+
+/* --- LEFT COLUMN: PROFILE --- */
+.profile-column {
+    text-align: center;
+}
+
+.profile-img-container img {
+    width: 100%;
+    max-width: 220px; /* Slightly smaller to fit the new column width */
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin-bottom: 1.5rem;
+}
+
+h2.major.profile-name {
+    display: flex !important;         /* Turn the title into a box */
+    flex-direction: column !important;/* Stack items (Text on top, Line below) */
+    align-items: center !important;   /* Force EVERYTHING to center */
+    justify-content: center !important;
+    
+    width: 100% !important;           /* Fill the container width */
+    text-align: center !important;
+    margin-bottom: 1.5rem !important;
+
+	border-bottom: none !important; /* Removes the long template line */
+    box-shadow: none !important;    /* Just in case the template uses shadow for the line */
+    background: none !important
+}
+
+/* 2. Tame the Underline (The :after element) */
+h2.major.profile-name:after {
+    content: '' !important;
+    display: block !important;
+    
+    /* Define the line look */
+    width: 100px !important;          /* Fixed width for the line */
+    height: 3px !important;           /* Thickness */
+    background-color: #ffffff !important; 
+    
+    /* Remove old absolute positioning so Flexbox can control it */
+    position: static !important;      
+    margin-top: 1rem !important;      /* Space between name and line */
+    left: auto !important;
+    transform: none !important;
+}
+
+.profile-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.badge {
+    background: #9bf1ff; /* Accent color */
+    color: #1b1f22; /* Dark text */
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- RIGHT COLUMN: BIO CARDS --- */
+.intro-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem; /* Space between cards */
+}
+
+.intro-card h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.intro-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #dcdcdc; /* Slightly softer white */
+
+	line-height: 1.6 !important;
+}
+
+/* Highlight important words */
+.intro-card strong {
+    color: #9bf1ff;
+
+	vertical-align: baseline !important; /* Forces the text to sit on the same line */
+    display: inline !important;          /* Prevents it from acting like a block */
+    line-height: inherit !important;
+}
+
+/* Specific styling for Education List */
+.edu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+}
+.edu-list li {
+    margin-bottom: 0.3rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+.edu-list li:before {
+    content: '•';
+    color: #9bf1ff;
+    position: absolute;
+    left: 0;
+}
+
+/* --- BUTTON GROUP --- */
+.intro-actions {
+    margin-top: 2rem;
+}
+.btn-group .button.primary {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+
+	background-color: #ffffff;
+    color: #1b1f22 !important; /* Force dark text so it's readable */
+    font-weight: bold;
+}
+
+.content-wrapper {
+    flex-grow: 1;
+    padding: 3rem 4rem;
+    overflow-y: auto;   /* ALLOWS SCROLLING */
+    overflow-x: hidden; /* STOPS HORIZONTAL SCROLLING */
+    height: 100%;
+    box-sizing: border-box; /* Prevents padding from adding to width */
+}
+
+/* --- CONTACT GRID LAYOUT --- */
+.contact-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem auto; /* Centers text and pushes grid down */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 Columns that wrap nicely */
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* --- THE CARD STYLE --- */
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    
+    text-decoration: none; /* Removes underline from the whole card */
+    transition: all 0.3s ease;
+    border-bottom: none;   /* Fixes template default border */
+}
+
+/* --- CARD HOVER EFFECTS (The "Pop") --- */
+.contact-card:hover {
+    transform: translateY(-10px); /* Lifts up */
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Brand Specific Glows on Hover */
+.contact-card.linkedin:hover { border-color: #0077b5; box-shadow: 0 10px 30px rgba(0, 119, 181, 0.3); }
+.contact-card.github:hover   { border-color: #6e5494; box-shadow: 0 10px 30px rgba(110, 84, 148, 0.3); }
+.contact-card.itch:hover     { border-color: #fa5c5c; box-shadow: 0 10px 30px rgba(250, 92, 92, 0.3); }
+
+/* --- CARD CONTENT --- */
+.card-icon .icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+/* Color the icons on hover */
+.contact-card.linkedin:hover .icon { color: #0077b5; }
+.contact-card.github:hover .icon   { color: #6e5494; }
+.contact-card.itch:hover .icon     { color: #fa5c5c; }
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.contact-card p {
+    font-size: 0.9rem;
+    color: #bbbbbb;
+    margin-bottom: 2rem;
+}
+
+/* --- THE "FAKE" BUTTON --- */
+.fake-button {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover .fake-button {
+    background: #ffffff;
+    color: #1b1f22; /* Invert text color */
+    border-color: #ffffff;
+}
+
 /* --- MOBILE FIXES --- */
 @media screen and (max-width: 600px) {
   
@@ -1970,4 +2212,53 @@ input, select, textarea {
     .skill-card {
         padding: 1.5rem;
     }
+
+	.intro-grid {
+        grid-template-columns: 1fr; /* Stack visually */
+        gap: 2rem;
+    }
+    
+    .profile-column {
+        margin-bottom: 1rem;
+    }
+    
+    .btn-group {
+        flex-direction: column; /* Stack buttons on phone */
+    }
+    
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+
+	.content-wrapper {
+        padding: 2rem 1.5rem;
+    }
 }
+
+/* --- DESKTOP FIXES --- */
+ @media screen and (max-width: 1080px) {
+    .intro-grid {
+        display: flex;        
+        flex-direction: column; 
+        align-items: center;    
+    }
+
+    .profile-column {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1); 
+        padding-bottom: 2rem;
+    }
+
+    .bio-column {
+        width: 100%; 
+    }
+    
+    
+    .intro-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+} 
