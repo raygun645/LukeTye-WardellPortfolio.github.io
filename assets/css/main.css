@@ -1834,6 +1834,76 @@ input, select, textarea {
   border-bottom: 1px solid #9bf1ff;
 }
 
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Auto-responsive columns */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* 2. The Skill Card */
+.skill-card {
+    background: rgba(255, 255, 255, 0.05); /* Very subtle transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #9bf1ff; /* Your accent color */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* 3. The Icon & Title Header */
+.icon-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.icon-header .icon {
+    font-size: 1.75rem;
+    color: #9bf1ff; /* Accent color */
+}
+
+.icon-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+/* 4. The "Tag" Cloud Styling */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap; /* Allows tags to wrap to next line */
+    gap: 0.8rem;
+}
+
+/* The Individual Tag (Pill) */
+.skill-tags span {
+    background: #1b1f22; /* Dark background for the tag */
+    border: 1px solid #9bf1ff; /* Thin accent border */
+    color: #ffffff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px; /* Makes them pill-shaped */
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: background 0.2s ease;
+    cursor: default;
+}
+
+.skill-tags span:hover {
+    background: #9bf1ff;
+    color: #1b1f22; /* Invert colors on hover */
+}
+
 /* --- MOBILE FIXES --- */
 @media screen and (max-width: 600px) {
   
@@ -1891,4 +1961,13 @@ input, select, textarea {
   .internal-nav ul::-webkit-scrollbar {
     display: none; 
   }
+
+  .skills-grid {
+        grid-template-columns: 1fr; /* Stack vertically on phones */
+        gap: 1.5rem;
+    }
+    
+    .skill-card {
+        padding: 1.5rem;
+    }
 }
