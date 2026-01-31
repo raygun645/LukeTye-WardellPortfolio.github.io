@@ -410,9 +410,9 @@
     								            The final systems successfully developed were:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Cellular Automata:</strong> Used to create organic, cave-like structures.</li>
-    								            <li><strong>Binary Space Partitioning (BSP):</strong> Used to create structured rooms within a level.</li>
-    								            <li><strong>Depth-First search:</strong> Used to create small interconected levels with rooms.</li>
+    								            <li><strong>Cellular Automata:</strong>Used to create organic, cave-like structures.</li>
+    								            <li><strong>Binary Space Partitioning (BSP):</strong>Used to create structured rooms within a level.</li>
+    								            <li><strong>Depth-First search:</strong>Used to create small interconected levels with rooms.</li>
     								        </ul>
     								    </div>
 									
@@ -429,7 +429,7 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project formed the backbone for my final Masters project. It taught me the importance of <em>seeding</em> in RNG to ensure bugs could be reproduced and fixed reliably.
+    								            <strong>Key Learning:</strong>This project formed the backbone for my final Masters project. It taught me the importance of <em>seeding</em> in RNG to ensure bugs could be reproduced and fixed reliably.
     								        </p>
     								    </div>
 									
@@ -488,7 +488,7 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-box-open"></span> The Challenge</h3>
     								        <p>
-    								            Following my previous project on level generation, I faced a new problem: <strong>Empty Rooms.</strong> 
+    								            Following my previous project on level generation, I faced a new problem:<strong>Empty Rooms.</strong> 
     								            The challenge was twofold: I needed systems to procedurally generate the content found within the levels (weapons, items, enemies) automatically, and I needed an intelligent placement algorithm to ensure these objects didn't spawn inside walls or inaccessible areas.
     								        </p>
     								    </div>
@@ -499,8 +499,8 @@
     								            I developed two distinct subsystems to handle Content and Context:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Modular Asset Generation:</strong> A "Constructor" script that assembles unique weapons/enemies/loot by randomly combining compatible meshes (e.g., Stock + Barrel + Grip) and assigning stats based on the resulting mesh map.</li>
-    								            <li><strong>Context-Aware Placement:</strong> A validation pass that checks the generated level. It uses grid-checks to identify valid "Floor" surfaces before spawning enemies or loot</li>
+    								            <li><strong>Modular Asset Generation:</strong>A "Constructor" script that assembles unique weapons/enemies/loot by randomly combining compatible meshes (e.g., Stock + Barrel + Grip) and assigning stats based on the resulting mesh map.</li>
+    								            <li><strong>Context-Aware Placement:</strong>A validation pass that checks the generated level. It uses grid-checks to identify valid "Floor" surfaces before spawning enemies or loot</li>
     								        </ul>
     								    </div>
 									
@@ -517,7 +517,7 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project highlighted the difference between "Random" and "Procedural." I learned that purely random values create noise; defining <em>Constraints</em> (rules for what parts fit together) is what creates usable game content.
+    								            <strong>Key Learning:</strong>This project highlighted the difference between "Random" and "Procedural." I learned that purely random values create noise; defining <em>Constraints</em> (rules for what parts fit together) is what creates usable game content.
     								        </p>
     								    </div>
 									
@@ -587,9 +587,9 @@
     								            I conducted a comparative implementation study, building three distinct AI controllers to test their viability in the dungeon crawler environment:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Finite State Machines (FSM):</strong> Implemented for simple enemies (e.g., Patrol → Chase → Attack). Efficient, but lacked nuance.</li>
-    								            <li><strong>Fuzzy Logic (FuSM):</strong> Added to introduce "uncertainty," allowing enemies to be in partial states (e.g., "Cautiously Aggressive") rather than binary on/off states.</li>
-    								            <li><strong>Behavior Trees (BTs):</strong> The winning solution. This hierarchical approach allowed for modular decision-making (Decorators, Selectors, Sequences) that scaled best with the complex procedural environment.</li>
+    								            <li><strong>Finite State Machines (FSM):</strong>Implemented for simple enemies (e.g., Patrol → Chase → Attack). Efficient, but lacked nuance.</li>
+    								            <li><strong>Fuzzy Logic (FuSM):</strong>Added to introduce "uncertainty," allowing enemies to be in partial states (e.g., "Cautiously Aggressive") rather than binary on/off states.</li>
+    								            <li><strong>Behavior Trees (BTs):</strong>The winning solution. This hierarchical approach allowed for modular decision-making (Decorators, Selectors, Sequences) that scaled best with the complex procedural environment.</li>
     								        </ul>
     								    </div>
 									
@@ -606,7 +606,7 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> While Finite State Machines are easier to set up, they become "spaghetti code" as complexity grows. Behavior Trees, while harder to implement initially, provided the modularity needed to separate the <em>Data</em> (what the AI knows) from the <em>Logic</em> (what the AI does).
+    								            <strong>Key Learning:</strong>While Finite State Machines are easier to set up, they become "spaghetti code" as complexity grows. Behavior Trees, while harder to implement initially, provided the modularity needed to separate the <em>Data</em> (what the AI knows) from the <em>Logic</em> (what the AI does).
     								        </p>
     								    </div>
 									
@@ -665,7 +665,7 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-cubes"></span> The Challenge</h3>
     								        <p>
-    								            The final hurdle was <strong>Integration</strong>. I had three different systems, Level Generation, Asset Placement, and AI that worked in isolation but needed to function cohesively in real-time.
+    								            The final hurdle was <strong>Integration.</strong>I had three different systems, Level Generation, Asset Placement, and AI that worked in isolation but needed to function cohesively in real-time.
     								            The challenge was to orchestrate the "Initialization Order" so the AI wouldn't spawn before the NavMesh was built, and loot wouldn't spawn before the level existed.
     								        </p>
     								    </div>
@@ -676,9 +676,9 @@
     								            I developed a <strong>Level Manager Architecture</strong> to handle the generation lifecycle and implemented core gameplay mechanics to turn the tech demo into a game:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Lifecycle Management:</strong> Created an event-driven initialization pipeline (Generate valid Level -> Spawn valid Assets -> Activate AI).</li>
-    								            <li><strong>Gameplay Loops:</strong> Implemented a combat system, inventory management, and a UI layer to provide context for the procedural elements.</li>
-    								            <li><strong>User Validation:</strong> Conducted playtesting sessions with volunteers to gather qualitative data on "Game Feel" and system stability.</li>
+    								            <li><strong>Lifecycle Management:</strong>Created an event-driven initialization pipeline (Generate valid Level -> Spawn valid Assets -> Activate AI).</li>
+    								            <li><strong>Gameplay Loops:</strong>Implemented a combat system, inventory management, and a UI layer to provide context for the procedural elements.</li>
+    								            <li><strong>User Validation:</strong>Conducted playtesting sessions with volunteers to gather qualitative data on "Game Feel" and system stability.</li>
     								        </ul>
     								    </div>
 									
@@ -695,7 +695,7 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project taught me that "Technical Complexity" does not always equal "Fun." The playtests revealed that while the underlying generation was impressive, the <em>pacing</em> of the gameplay required manual tuning variables to ensure the procedural difficulty curve felt fair.
+    								            <strong>Key Learning:</strong>This project taught me that "Technical Complexity" does not always equal "Fun." The playtests revealed that while the underlying generation was impressive, the <em>pacing</em> of the gameplay required manual tuning variables to ensure the procedural difficulty curve felt fair.
     								        </p>
     								    </div>
 									
@@ -785,7 +785,7 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project improved my understanding of <em>UInterfaces</em>. This allows the Player to execute generic commands (e.g., "Use Tool") that result in unique behaviors depending on the target (Soil, Crop), removing the need for complex casting or branching logic.
+    								            <strong>Key Learning:</strong>This project improved my understanding of <em>UInterfaces</em>. This allows the Player to execute generic commands (e.g., "Use Tool") that result in unique behaviors depending on the target (Soil, Crop), removing the need for complex casting or branching logic.
     								        </p>
     								    </div>
 									
@@ -844,7 +844,7 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-robot"></span> The Challenge</h3>
     								        <p>
-    								            I wanted to explore how <strong>Machine Learning (ML)</strong> could be integrated into a game engine environment. The goal was to train an agent to navigate a track autonomously.
+    								            I wanted to explore how <strong>Machine Learning (ML)</strong>could be integrated into a game engine environment. The goal was to train an agent to navigate a track autonomously.
     								            The core challenge was defining the inputs (vision) and outputs (steering) so the agent could "perceive" the track boundaries in real-time.
     								        </p>
     								    </div>
@@ -855,9 +855,9 @@
     								            I implemented a Neural Network based on <strong>Reinforcement Learning</strong> principles:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Sensory Input (Track Spline):</strong> The car attempts to follow a track spline. These values are normalized and fed into the network.</li>
-    								            <li><strong>Action Output:</strong> The network outputs throttle and steering values.</li>
-    								            <li><strong>The Reward Function:</strong> I designed a fitness function that rewarded speed and distance traveled, while heavily penalizing collisions. This creates an evolutionary pressure for the agent to drive fast but safely.</li>
+    								            <li><strong>Sensory Input (Track Spline):</strong>The car attempts to follow a track spline. These values are normalized and fed into the network.</li>
+    								            <li><strong>Action Output:</strong>The network outputs throttle and steering values.</li>
+    								            <li><strong>The Reward Function:</strong>I designed a fitness function that rewarded speed and distance traveled, while heavily penalizing collisions. This creates an evolutionary pressure for the agent to drive fast but safely.</li>
     								        </ul>
     								    </div>
 									
@@ -874,7 +874,7 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project taught me the basics of <em>Machine Learning</em> in Unreal engine. it was interesting to see how different inputs and outputs can affect the overall outcome.
+    								            <strong>Key Learning:</strong>This project taught me the basics of <em>Machine Learning</em> in Unreal engine. it was interesting to see how different inputs and outputs can affect the overall outcome.
     								        </p>
     								    </div>
 									
@@ -934,19 +934,19 @@
     								        <h3><span class="icon solid fa-stopwatch"></span> The Challenge</h3>
     								        <p>
     								            The challenge of the AI and Games Summer School jam was to integrate AI into a game in some way, myself and another developer chose to integreate GenAI into the game loop. 
-    								            Technically, the main hurdle was <strong>Latency</strong>. Generating an image with Stable Diffusion and text with an LLM takes seconds far too long to pause a game. We needed a way to process these heavy requests locally without freezing the main game thread.
+    								            Technically, the main hurdle was <strong>Latency.</strong>Generating an image with Stable Diffusion and text with an LLM takes seconds far too long to pause a game. We needed a way to process these heavy requests locally without freezing the main game thread.
     								        </p>
     								    </div>
 									
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-server"></span> The Solution</h3>
     								        <p>
-    								            We designed an <strong>Asynchronous Gameplay Loop</strong> where the "Wait Time" became the "Game Time."
+    								            We designed an <strong>Asynchronous Gameplay Loop</strong>where the "Wait Time" became the "Game Time."
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>The Mechanic:</strong> The player acts as the "Prompt Engineer." By running between stations and typing ingredients, they are constructing the "Recipe" for the AI.</li>
-    								            <li><strong>Pipeline:</strong> Once submitted, the data is sent to a locally running AI model. The game continues running while the LLM generates a description and Stable Diffusion generates the texture.</li>
-    								            <li><strong>Runtime Assets:</strong> When the API returns, we convert the raw data into a Unity Texture2D and apply it to the UI cake pciture in real-time.</li>
+    								            <li><strong>The Mechanic:</strong>The player acts as the "Prompt Engineer." By running between stations and typing ingredients, they are constructing the "Recipe" for the AI.</li>
+    								            <li><strong>Pipeline:</strong>Once submitted, the data is sent to a locally running AI model. The game continues running while the LLM generates a description and Stable Diffusion generates the texture.</li>
+    								            <li><strong>Runtime Assets:</strong>When the API returns, we convert the raw data into a Unity Texture2D and apply it to the UI cake pciture in real-time.</li>
     								        </ul>
     								    </div>
 									
@@ -963,7 +963,7 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This project taught me how to bridge <em>C# (Unity)</em> with <em>Local API calls.</em> It also highlighted the importance of error handling what happens if the AI generates something invalid?
+    								            <strong>Key Learning:</strong>This project taught me how to bridge <em>C# (Unity)</em> with <em>Local API calls.</em> It also highlighted the importance of error handling what happens if the AI generates something invalid?
     								        </p>
     								    </div>
 									
@@ -1033,9 +1033,9 @@
     								            I focused on efficient memory management and persistent systems:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Object Pooling Pattern:</strong> Instead of having pre constructed track pieces, I procedurally generate each track piece before the player reaches it using pooling so each track piece has a different obstacle configuration.</li>
-    								            <li><strong>Serialization (Save System):</strong> Implemented a `USaveGame` subsystem to write binary data to the device, storing total Coin Count and High Scores between app launches.</li>
-    								            <li><strong>Vector Math Mechanics:</strong> The "Magnet" upgrade uses vector interpolation (VInterp) to calculate the direction and velocity required to pull coin actors toward the player dynamically.</li>
+    								            <li><strong>Object Pooling Pattern:</strong>Instead of having pre constructed track pieces, I procedurally generate each track piece before the player reaches it using pooling so each track piece has a different obstacle configuration.</li>
+    								            <li><strong>Serialization (Save System):</strong>Implemented a `USaveGame` subsystem to write binary data to the device, storing total Coin Count and High Scores between app launches.</li>
+    								            <li><strong>Vector Math Mechanics:</strong>The "Magnet" upgrade uses vector interpolation (VInterp) to calculate the direction and velocity required to pull coin actors toward the player dynamically.</li>
     								        </ul>
     								    </div>
 									
@@ -1113,8 +1113,8 @@
     								    <div class="case-study-section">
     								        <h3><span class="icon solid fa-book-reader"></span> The Goal</h3>
     								        <p>
-    								            My objective was to to refine the skills I already had as a game AI programmer. I feel its important to touch on the fundamentals in order to fully understand a subject, so I started to reread some of books I used for AI projects in the past and make notes.
-    								            I studied <strong>Artificial Intelligence in Games</strong> to further understand AI concepts while also studying new and interesting concepts i'd never touched before.
+    								            My objective was to refine the skills I already had as a game AI programmer. I feel its important to touch on the fundamentals in order to fully understand a subject, so I started to reread some of books I used for AI projects in the past and make notes.
+    								            I studied <strong>Artificial Intelligence in Games</strong>to further understand AI concepts while also studying new and interesting concepts i'd never touched before.
     								        </p>
     								    </div>
 									
@@ -1124,9 +1124,9 @@
     								            I built several key algorithms from the text into a prototype environment to verify their behaviors:
     								        </p>
     								        <ul class="tech-list">
-    								            <li><strong>Steering Behaviors:</strong> Implemented steering behaviors (Seek, Flee, Arrive) using raw vector math. This taught me how to calculate "Desired Velocity" vs "Current Velocity" to create smooth, natural movement.</li>
-    								            <li><strong>Pathfinding (A*):</strong> wrote a custom A* pathfinder from scratch. This involved building the node graph, calculating the G/H/F costs, and handling edge cases like "unreachable goals."</li>
-    								            <li><strong>Chess AI:</strong> Built a chess algorithm using Minimaxing to calculate the best postions for the AI pieces, creating a complex chess agent</li>
+    								            <li><strong>Steering Behaviors:</strong>Implemented steering behaviors (Seek, Flee, Arrive) using raw vector math. This taught me how to calculate "Desired Velocity" vs "Current Velocity" to create smooth, natural movement.</li>
+    								            <li><strong>Pathfinding (A*):</strong>wrote a custom A* pathfinder from scratch. This involved building the node graph, calculating the G/H/F costs, and handling edge cases like "unreachable goals."</li>
+    								            <li><strong>Chess AI:</strong>Built a chess algorithm using Minimaxing to calculate the best postions for the AI pieces, creating a complex chess agent</li>
     								        </ul>
     								    </div>
 									
@@ -1143,7 +1143,7 @@
     								            </div>
     								        </div>
     								        <p style="margin-top: 1rem;">
-    								            <strong>Key Learning:</strong> This study highlighted the importance of core AI concepts when building agents while also providing opportunities to reseach more complex systems such as <strong>Genetic Algorithms</strong> and <strong>Neural Networks</strong>
+    								            <strong>Key Learning:</strong> This study highlighted the importance of core AI concepts when building agents while also providing opportunities to reseach more complex systems such as <strong>Genetic Algorithms</strong>and <strong>Neural Networks</strong>
     								        </p>
     								    </div>
 									
