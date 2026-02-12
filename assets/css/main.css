@@ -2463,6 +2463,29 @@ h2.major.profile-name:after {
     height: 3rem;                     /* Fixed height for consistency */
 }
 
+.video-caption {
+    display: flex;
+    justify-content: center; /* Center it under the video */
+    align-items: center;
+    gap: 0.5rem;             /* Space between icon and text */
+    
+    margin-top: -1.2rem !important; /* Pull it UP into the video's bottom margin */
+    margin-bottom: 2rem !important; /* Push the paragraph text down */
+    
+    font-size: 0.75rem;      /* Keep it small and technical */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #9bf1ff;          /* Use your accent color (Cyan) */
+    
+    opacity: 0.8;            /* Slightly subtle */
+    transition: opacity 0.2s ease;
+}
+
+.video-caption:hover {
+    opacity: 1;              /* Brighten on hover */
+}
+
 /* Optional: Hide the button icon on very small screens if text gets squashed */
 @media screen and (max-width: 360px) {
     .intro-actions .btn-group .button .icon {
