@@ -2800,3 +2800,180 @@ nav ul li a:hover {
 .internal-nav {
     border-bottom: 1px dashed rgba(255, 255, 255, 0.2) !important;
 }
+
+:root {
+    --terminal-bg: #0d1117;       /* Darker, GitHub-like background */
+    --terminal-text: #c9d1d9;     /* Soft code-editor white */
+    --terminal-accent: #9bf1ff;   /* Your Cyan Accent */
+    --terminal-dim: #8b949e;      /* Comments grey */
+    --font-code: 'Consolas', 'Monaco', 'Courier New', monospace;
+    --font-ui: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, .is-preload {
+    background-color: var(--terminal-bg) !important;
+    color: var(--terminal-text) !important;
+    font-family: var(--font-ui); /* Keep body readable */
+}
+
+/* --- 2. HEADINGS AS TERMINAL COMMANDS --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-code) !important;
+    color: #ffffff !important;
+    letter-spacing: -0.5px !important;
+    text-transform: none !important; /* Code is lowercase/mixed */
+}
+
+/* Remove the old solid underlines */
+h2.major::after {
+    display: none !important; 
+}
+
+/* --- 3. UI ELEMENTS: CARDS & BOXES --- */
+/* Make cards look like code blocks */
+.project-card, 
+.skill-card, 
+.contact-card, 
+.intro-card,
+.tech-deep-dive {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid #30363d !important; /* Subtle border */
+    border-radius: 6px !important;        /* Slight rounding like VS Code tabs */
+    box-shadow: none !important;          /* Flat design */
+    transition: border-color 0.2s ease;
+}
+
+/* Hover Effect: Active Line Glow */
+.project-card:hover, 
+.skill-card:hover,
+.contact-card:hover {
+    border-color: var(--terminal-accent) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* --- 4. BUTTONS: "EXECUTE" STYLE --- */
+.button, 
+.fake-button, 
+.btn-project {
+    font-family: var(--font-code) !important;
+    background: transparent !important;
+    border: 1px solid var(--terminal-accent) !important;
+    color: var(--terminal-accent) !important;
+    border-radius: 4px !important;
+    text-transform: lowercase !important; /* cmd_style */
+    font-weight: bold !important;
+    box-shadow: none !important;
+    transition: all 0.1s ease !important;
+}
+
+/* Button Hover: Solid Block */
+.button:hover, 
+.fake-button:hover, 
+.btn-project:hover {
+    background: var(--terminal-accent) !important;
+    color: var(--terminal-bg) !important; /* Invert text to dark */
+    box-shadow: 0 0 10px rgba(155, 241, 255, 0.4) !important;
+}
+
+/* --- 5. TECHNICAL DETAILS & LISTS --- */
+/* Style bullet points as custom characters */
+ul li::before {
+    color: var(--terminal-dim) !important;
+}
+
+/* Code Snippets / Key Words */
+strong, b {
+    color: var(--terminal-accent) !important;
+    font-family: var(--font-code) !important;
+    font-weight: normal !important;
+}
+
+/* Stats Bars (Tech Specs) */
+.stats-bar {
+    background: #161b22 !important; /* Slightly lighter header bar */
+    border: 1px solid #30363d !important;
+    border-left: 4px solid var(--terminal-accent) !important;
+}
+
+.stat-label {
+    font-family: var(--font-code) !important;
+    color: var(--terminal-dim) !important;
+}
+
+/* --- 6. SCROLLBAR (CHROME/EDGE/SAFARI) --- */
+/* Custom tech scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    background: var(--terminal-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 4px;
+    border: 2px solid var(--terminal-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--terminal-dim);
+}
+
+.skill-tags span {
+    font-family: var(--font-code) !important;
+    background: #161b22 !important;
+    border: 1px solid #30363d !important;
+    color: var(--terminal-accent) !important;
+    border-radius: 4px !important; /* Square off the round pills */
+}
+.skill-tags span:hover {
+    border-color: var(--terminal-accent) !important;
+    background: rgba(155, 241, 255, 0.1) !important;
+}
+
+/* 1. Force the Project Headers to Center */
+.project-header h2,
+.project-header h2.major {
+    text-align: center !important;
+    display: inline-block !important; /* Shrink the box to fit the text */
+    width: auto !important;           /* Stop it from filling the whole line */
+    margin: 0 auto 1rem auto !important; /* Auto margins center the block */
+    
+    /* Optional: Ensure the container flexes to center it */
+    align-self: center !important;
+}
+
+/* 2. Ensure the parent container aligns its children */
+.project-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Horizontal Center */
+    text-align: center !important;
+}
+
+/* 3. (Optional) If the >_ prompt looks weird when centered */
+/* This ensures the prompt stays stuck to the text */
+.project-header h2::before {
+    display: inline-block;
+}
+
+/* 1. Force the text to be Cyan (Not Dark Grey) */
+.intro-actions .btn-group .button.primary,
+.button.primary,
+.button {
+    color: var(--terminal-accent) !important; /* Cyan Text */
+    background: transparent !important;       /* Transparent Background */
+    border: 1px solid var(--terminal-accent) !important;
+}
+
+/* 2. Fix the Icon color too */
+.intro-actions .btn-group .button.primary .icon {
+    color: inherit !important; /* Use the text color */
+}
+
+/* 3. Hover State (Flip colors) */
+.intro-actions .btn-group .button.primary:hover,
+.button.primary:hover,
+.button:hover {
+    background: var(--terminal-accent) !important; /* Solid Cyan */
+    color: var(--terminal-bg) !important;          /* Dark Text */
+    box-shadow: 0 0 15px rgba(155, 241, 255, 0.4) !important; /* Glow */
+}
