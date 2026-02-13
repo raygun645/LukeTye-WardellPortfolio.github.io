@@ -2725,3 +2725,78 @@ h2.major.profile-name:after {
     position: static !important;
     object-fit: cover !important;
 }
+
+/* --- PROGRAMMER THEME TWEAKS --- */
+
+/* 1. Monospace Font for Code Elements */
+.code-comment, 
+nav ul li a, 
+.logo .icon {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    letter-spacing: 1px;
+}
+
+/* 2. Style the Subtitle as a Comment */
+.code-comment {
+    color: #9bf1ff !important; /* Your Cyan Accent Color */
+    opacity: 0.8;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* 3. The Blinking Cursor Effect */
+.cursor {
+    display: inline-block;
+    color: #9bf1ff;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 4. Nav Link Hover Effects */
+nav ul li a {
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: #9bf1ff !important;
+    text-shadow: 0 0 8px rgba(155, 241, 255, 0.5); /* Glowing Text */
+}
+
+/* 5. Terminal Icon Glow */
+.logo .icon {
+    border-color: #ffffff !important; /* White circle */
+    color: #9bf1ff !important;        /* Cyan Terminal */
+    text-shadow: 0 0 10px rgba(155, 241, 255, 0.6);
+}
+
+/* --- INTERNAL NAV: TERMINAL THEME --- */
+
+/* 1. Force Monospace Font (Code Style) */
+.internal-nav a {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    font-size: 0.85rem !important; /* Slightly larger for readability */
+    letter-spacing: 0px !important; /* Code fonts don't need wide spacing */
+    text-transform: none !important; /* Allow lowercase (like real code) */
+}
+
+/* 2. The Idle State (Dimmed Code) */
+.internal-nav a {
+    color: rgba(255, 255, 255, 0.6) !important; /* Greyed out comment style */
+    transition: all 0.2s ease;
+}
+
+/* 3. The Hover State (Active Terminal Glow) */
+.internal-nav a:hover {
+    color: #9bf1ff !important;        /* Cyan */
+    text-shadow: 0 0 8px rgba(155, 241, 255, 0.5); /* Glow effect */
+    background: transparent !important; /* Ensure no box background appears */
+}
+
+/* Optional: Add a subtle border bottom that looks like a terminal divider */
+.internal-nav {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2) !important;
+}
