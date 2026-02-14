@@ -2467,7 +2467,7 @@ h2.major.profile-name:after {
     align-items: center;
     gap: 0.5rem;             /* Space between icon and text */
     
-    margin-top: -1.2rem !important; /* Pull it UP into the video's bottom margin */
+    margin-top: 0.5rem !important; /* Pull it UP into the video's bottom margin */
     margin-bottom: 2rem !important; /* Push the paragraph text down */
     
     font-size: 0.75rem;      /* Keep it small and technical */
