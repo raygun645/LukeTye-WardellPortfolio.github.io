@@ -376,10 +376,15 @@
     								    <header class="project-header">
     								        <h2 class="major">Procedural Level Generation</h2>
     								        <p class="subtitle">Masters Project 1</p>
-										
-    								        <div class="video-wrapper">
+											
+											<div class="video-placeholder" data-id="9n7jdqANVo8?si=2v-ra8D9znPAIvz0">
+    											<img src="https://img.youtube.com/vi/9n7jdqANVo8?si=2v-ra8D9znPAIvz0/hqdefault.jpg" alt="Video Thumbnail" loading="lazy">
+    											<div class="play-button"></div>
+											</div>
+
+    								        <!-- <div class="video-wrapper">
     								             <iframe src="https://www.youtube.com/embed/9n7jdqANVo8?si=2v-ra8D9znPAIvz0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    								        </div>
+    								        </div> -->
     								    </header>
 									
     								    <div class="stats-bar">
@@ -1441,6 +1446,36 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+    			// Find all video placeholders
+    			const videos = document.querySelectorAll('.video-placeholder');
+
+    			videos.forEach(video => {
+        			video.addEventListener('click', function() {
+           				// Get the video ID we stored in the HTML
+           				const id = this.getAttribute('data-id');
+
+           				// Create the real iframe
+           				const iframe = document.createElement('iframe');
+           				iframe.setAttribute('src', `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`);
+           				iframe.setAttribute('frameborder', '0');
+           				iframe.setAttribute('allowfullscreen', '1');
+           				iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+
+           				// Style it to fill the box
+           				iframe.style.position = "absolute";
+           				iframe.style.top = "0";
+           				iframe.style.left = "0";
+           				iframe.style.width = "100%";
+           				iframe.style.height = "100%";
+					
+           				// Swap the image for the video
+           				this.innerHTML = '';
+           				this.appendChild(iframe);
+       				 });
+   				 });
+			</script>
 
 	</body>
 </html>
