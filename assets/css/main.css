@@ -3030,3 +3030,163 @@ strong, b {
 .video-placeholder:hover .play-button {
     background-color: #f00; /* YouTube Red on Hover */
 }
+
+.changelog-container {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0;
+    /* This creates the continuous vertical line */
+    border-left: 2px solid rgba(255, 255, 255, 0.1); 
+}
+
+.changelog-entry {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* Remove bottom margin from the very last entry */
+.changelog-entry:last-child {
+    margin-bottom: 0;
+}
+
+/* The Glowing Commit Node */
+.changelog-node {
+    position: absolute;
+    left: -2.35rem; /* Pulls it perfectly onto the vertical line */
+    top: 0.25rem;
+    width: 12px;
+    height: 12px;
+    background-color: var(--terminal-bg, #0d1117);
+    border: 2px solid var(--terminal-accent, #9bf1ff);
+    border-radius: 50%; /* Makes it a circle */
+    box-shadow: 0 0 8px rgba(155, 241, 255, 0.4);
+    z-index: 2;
+}
+
+/* The Date Tag (Terminal Variable Style) */
+.changelog-date {
+    display: inline-block;
+    font-family: var(--font-code, 'Consolas', monospace);
+    color: var(--terminal-dim, #8b949e);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+/* The Update Title */
+.changelog-title {
+    margin: 0 0 0.5rem 0 !important;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+/* Ensure text doesn't clash with the line on mobile */
+.changelog-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.changelog-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-family: var(--font-code, 'Consolas', monospace);
+    color: var(--terminal-accent, #9bf1ff); /* Cyan to match your theme */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid transparent;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    background: rgba(155, 241, 255, 0.05); /* Very faint background box */
+}
+
+/* Hover Effect: Lights up like a selected terminal item */
+.changelog-link:hover {
+    background: rgba(155, 241, 255, 0.15);
+    border: 1px solid var(--terminal-accent);
+    text-decoration: none;
+    transform: translateX(4px); /* Slight nudge to the right on hover */
+}
+
+.terminal-window {
+    background-color: rgba(13, 17, 23, 0.7); /* Dark background */
+    border: 1px solid rgba(155, 241, 255, 0.2); /* Faint cyan border */
+    border-radius: 6px;
+    padding: 1.5rem 1rem 1.5rem 2rem;
+    margin-top: 1.5rem;
+    
+    /* THE MAGIC PART: Limits height and enables scrolling */
+    max-height: 450px; 
+    overflow-y: auto;
+}
+
+/* Custom Scrollbar for Webkit (Chrome, Edge, Safari) */
+.terminal-window::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-window::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.terminal-window::-webkit-scrollbar-thumb {
+    background: rgba(155, 241, 255, 0.3); /* Dim cyan scrollbar */
+    border-radius: 4px;
+}
+
+.terminal-window::-webkit-scrollbar-thumb:hover {
+    background: rgba(155, 241, 255, 0.6); /* Brighter on hover */
+}
+
+.changelog-accordion {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* The Clickable Button */
+.changelog-toggle {
+    cursor: pointer;
+    font-family: var(--font-code, 'Consolas', monospace);
+    color: var(--terminal-accent, #9bf1ff);
+    background: rgba(13, 17, 23, 0.8);
+    border: 1px solid rgba(155, 241, 255, 0.3);
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    list-style: none; /* Hides the default arrow */
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+/* Hides the default arrow in Safari/Chrome */
+.changelog-toggle::-webkit-details-marker {
+    display: none; 
+}
+
+/* Hover effect */
+.changelog-toggle:hover {
+    background: rgba(155, 241, 255, 0.1);
+    border-color: var(--terminal-accent, #9bf1ff);
+    box-shadow: 0 0 10px rgba(155, 241, 255, 0.2);
+}
+
+/* Add a gap between the button and the box when it opens */
+.changelog-accordion[open] .terminal-window {
+    margin-top: 1rem;
+    animation: fadeDown 0.3s ease-out; /* Smooth open effect */
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
